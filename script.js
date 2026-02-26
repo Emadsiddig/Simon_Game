@@ -45,7 +45,7 @@ function animation(currentColor){
 
 // Touch + Click start support (mobile + desktop)
 
-$(document).on("touchstart click", function(){
+$("#level-title").on("touchstart click", function(){
     if(!started){
         NextSequence();
         started = true;
