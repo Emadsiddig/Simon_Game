@@ -41,14 +41,16 @@ function animation(currentColor){
         $("#" + currentColor).removeClass("pressed");
     },100);
 }
-//the keypress traker
 
-$(document).keydown(function(){
+
+// Touch + Click start support (mobile + desktop)
+
+$(document).on("touchstart click", function(){
     if(!started){
-    NextSequence();
-    started = true;
+        NextSequence();
+        started = true;
     }
-})
+});
 
 function CheckAnswer(currentLevel){
    
@@ -64,7 +66,7 @@ function CheckAnswer(currentLevel){
     else{
         var wrongSound = new Audio("./sounds/wrong.mp3")
         wrongSound.play();
-        $("h1").text("wrong,press any key to restart");
+        $("h1").text("wrong,tap any where to restart");
         $("body").addClass("game-over");
         setTimeout(function(){
            $("body").removeClass("game-over"); 
